@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
       }
       return { success: false, message: 'Login failed' };
     } catch (err) {
-      const message = err.response?.data?.message || 'Server error. Please try again.';
+      const message = err.response?.data?.message || err.message || 'Server error. Please try again.';
       return {
         success: false,
         message,
@@ -74,7 +74,7 @@ export const AuthProvider = ({ children }) => {
       }
       return { success: false, message: 'Registration failed' };
     } catch (err) {
-      const message = err.response?.data?.message || 'Registration failed';
+      const message = err.response?.data?.message || err.message || 'Registration failed';
       return { success: false, message };
     }
   };
