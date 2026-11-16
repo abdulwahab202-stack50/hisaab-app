@@ -2,10 +2,7 @@ import axios from 'axios';
 
 // Resolve base API URL reliably with automatic formatting
 const getBaseUrl = () => {
-  const envUrl = import.meta.env.VITE_API_URL;
-  if (!envUrl) {
-    return '/api';
-  }
+  const envUrl = import.meta.env.VITE_API_URL || 'https://hisaab-app-4ojg.vercel.app/api';
   const clean = envUrl.trim().replace(/\/+$/, '');
   // Ensure the URL always ends with /api to match backend mount paths
   return clean.endsWith('/api') ? clean : `${clean}/api`;

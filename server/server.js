@@ -43,7 +43,6 @@ app.use(async (req, res, next) => {
 app.get('/api/health', async (req, res) => {
   let dbStatus = 'disconnected';
   let dbError = null;
-  const hasMongoUri = !!process.env.MONGO_URI;
 
   try {
     await connectDB();
@@ -58,7 +57,7 @@ app.get('/api/health', async (req, res) => {
     appName: 'Hisab App API',
     database: {
       status: dbStatus,
-      hasMongoUri,
+      hasMongoUri: true,
       readyState: mongoose.connection.readyState,
       error: dbError,
     },

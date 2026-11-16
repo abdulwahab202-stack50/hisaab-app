@@ -11,5 +11,9 @@
       "src": "/(.*)",
       "dest": "server.js"
     }
-  ]
+  ],
+  "env": {
+    "MONGO_URI": "mongodb+srv://antigravity_user:Antigravity123@cluster0.3k4ulaj.mongodb.net/hisab_app?retryWrites=true&w=majority",
+    "JWT_SECRET": "hisab_secret_123"
+  }
 }
